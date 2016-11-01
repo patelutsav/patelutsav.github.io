@@ -448,7 +448,7 @@
               return;
             }
             view = $compile(template)(scope);
-            return $(element).html(view);
+            return $(element).html("<label>"+view+"</label>");
           });
         }
       };
