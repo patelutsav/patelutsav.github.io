@@ -442,7 +442,7 @@
               componentName: scope.component.name
             }
           });
-          return scope.$watch('component.template'/*template*/, function(template) {
+          return scope.$watch('component.label'/*template*/, function(template) {
             var view;
             if (!template) {
               return;
