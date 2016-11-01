@@ -447,7 +447,7 @@
             if (!template) {
               return;
             }
-            view = $compile(template)(scope);
+            //view = $compile(template)(scope);
             return $(element).html(view.toString());
           });
         }
