@@ -4,7 +4,6 @@
       $builderProvider.registerComponent('textInput', {
         group: 'Default',
         label: 'Text Input',
-		title: '<label>Text Input</label>',
         description: 'description',
         placeholder: 'placeholder',
         required: false,
@@ -29,7 +28,6 @@
       $builderProvider.registerComponent('textArea', {
         group: 'Default',
         label: 'Text Area',
-		title: '<label>Text Area</label>',
         description: 'description',
         placeholder: 'placeholder',
         required: false,
@@ -39,7 +37,6 @@
       $builderProvider.registerComponent('checkbox', {
         group: 'Default',
         label: 'Checkbox',
-		title: '<label>Checkbox</label>',
         description: 'description',
         placeholder: 'placeholder',
         required: false,
@@ -51,7 +48,6 @@
       $builderProvider.registerComponent('radio', {
         group: 'Default',
         label: 'Radio',
-		title: '<label>Radio</label>',
         description: 'description',
         placeholder: 'placeholder',
         required: false,
@@ -62,7 +58,6 @@
       return $builderProvider.registerComponent('select', {
         group: 'Default',
         label: 'Select',
-		title: '<label>Select</label>',
         description: 'description',
         placeholder: 'placeholder',
         required: false,
