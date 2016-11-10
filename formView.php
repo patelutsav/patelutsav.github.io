@@ -41,7 +41,7 @@
     
     <div class="row">
     	<div>
-            <h2 style="width:90%;float:left;">Form</h2>
+            <h2 style="width:90%;float:left;"><?php echo $_GET['formName'];?></h2>
             <span style="float: left;width: 10%;margin-top: 20px;"><a href="index.php">Home</a></span>
             <hr style="clear:both;"/>
             <form class="form-horizontal">
