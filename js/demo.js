@@ -70,16 +70,32 @@
         template: "<div class=\"form-group\">\n    <label for=\"{{formName+index}}\" class=\"col-sm-2 control-label\">{{label}}</label>\n    <div class=\"col-sm-10\">\n        <select ng-options=\"value for value in options\" id=\"{{formName+index}}\" class=\"form-control\"\n            ng-model=\"inputText\" ng-init=\"inputText = options[0]\"/>\n        <p class='help-block'>{{description}}</p>\n    </div>\n</div>",
         popoverTemplate: "<form>\n    <div class=\"form-group\">\n        <label class='control-label'>Label</label>\n        <input type='text' ng-model=\"label\" validator=\"[required]\" class='form-control'/>\n    </div>\n    <div class=\"form-group\">\n        <label class='control-label'>Description</label>\n        <input type='text' ng-model=\"description\" class='form-control'/>\n    </div>\n    <div class=\"form-group\">\n        <label class='control-label'>Options</label>\n        <textarea class=\"form-control\" rows=\"3\" ng-model=\"optionsText\"/>\n    </div>\n\n    <hr/>\n    <div class='form-group'>\n        <input type='submit' ng-click=\"popover.save($event)\" class='btn btn-primary' value='Save'/>\n        <input type='button' ng-click=\"popover.cancel($event)\" class='btn btn-default' value='Cancel'/>\n        <input type='button' ng-click=\"popover.remove($event)\" class='btn btn-danger' value='Delete'/>\n    </div>\n</form>"
       });
+	 
     }
   ]).controller('DemoController', [
     '$scope', '$builder', '$validator', function($scope, $builder, $validator) {
       
       $scope.form = $builder.forms['default'];
+	  
+		
+	  //$builder.forms['default'] = [{"component":"textInput","editable":true,"index":0,"label":"Text Input","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"},{"component":"textArea","editable":true,"index":1,"label":"Text Area","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"}];
       $scope.input = [];
       $scope.defaultValue = {};
+	  $scope.saveForm = function () {
+		  var formData = { 'formName': $scope.formName, 'formData': angular.toJson($scope.form)};
+		  //alert(formData);
+		  $.post( 
+                  "formSaver.php",
+                  formData,
+                  function(data) {
+					 window.location = "formView.php?formName="+$scope.formName;
+                  }
+               );
+		  
+		};
       return $scope.submit = function() {
         return $validator.validate($scope, 'default').success(function() {
-          return console.log('success');
+			return console.log('success');
         }).error(function() {
           return console.log('error');
         });
@@ -88,3 +104,5 @@
   ]);
 
 }).call(this);
+
+

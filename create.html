@@ -14,12 +14,14 @@
     <script type="text/javascript" src="js/angular-validator.min.js"></script>
     <script type="text/javascript" src="js/angular-validator-rules.min.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
+    <script>var formData=[];</script>
 </head>
 <body class="container" ng-controller="DemoController">
     <div class="row">
     	<div class="col-md-10">
-        	<h1>Editor</h1>
-	        <hr/>
+        	<h1 style="width:90%;float:left;">Editor</h1>
+	        <span style="float: left;width: 10%;margin-top: 20px;"><a href="index.php">Home</a></span>
+            <hr style="clear:both;"/>
         </div>
     </div>
     <div class="row">
@@ -29,14 +31,7 @@
                     <h3 class="panel-title">Builder</h3>
                 </div>
                 <div fb-builder="default"></div>
-                <div class="panel-footer">
-                    <div class="checkbox">
-                        <label><input type="checkbox" ng-model="isShowScope" />
-                            Show scope
-                        </label>
-                    </div>
-                    <pre ng-if="isShowScope">{{form}}</pre>
-                </div>
+                
             </div>
         </div>
         
@@ -50,34 +45,15 @@
     </div>
 	<div class="row">
     	<div class="col-md-10">
-        <input type="text" name="formName" placeholder="Form Name" class="form-control" style="width:20%;display:inline;margin-right:5px;"/><button class="btn btn-primary" ng-click="">Save Form</button>
+        <input type="text" name="formName" placeholder="Form Name" class="form-control" style="width:20%;display:inline;margin-right:5px;" ng-model="formName"/><button class="btn btn-primary" ng-click="saveForm()">Save &amp; Preview</button>
         </div>
     </div>
-    <div class="row">
-    	<div class="col-md-10">
-            <h2>Form</h2>
-            <hr/>
-            <form class="form-horizontal">
-                <div ng-model="input" fb-form="default" fb-default="defaultValue"></div>
-                <div class="form-group">
-                    <div class="col-md-12 col-md-offset-2">
-                        <input type="submit" ng-click="submit()" class="btn btn-default"/>
-                    </div>
-                </div>
-            </form>
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="isShowScope" ng-init="isShowScope=true" />
-                    Show scope
-                </label>
-            </div>
-            <pre ng-if="isShowScope">{{input}}</pre>
-       </div>
-    </div>
+    
 
     <div class="row">
         <div class="col-md-12 footer">
         <hr/>
-        Copyright &copy; | Utsav Patel
+       
         </div>
     </div>
 

@@ -990,8 +990,9 @@
       updateInput: '$updateInput'
     };
     this.forms = {
-      "default": []
+      "default": formData
     };
+	
     this.convertComponent = function(name, component) {
       var result, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       result = {
