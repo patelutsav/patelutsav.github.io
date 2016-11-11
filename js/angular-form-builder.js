@@ -989,7 +989,7 @@
     this.broadcastChannel = {
       updateInput: '$updateInput'
     };
-    this.forms = {
+	this.forms = {
       "default": formData
     };
 	

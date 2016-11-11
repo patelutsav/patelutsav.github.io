@@ -6,6 +6,30 @@
     <title>Form Builder</title>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" href="css/angular-form-builder.css"/>
+    <script>
+	<?php 
+		$filename = $_GET['formName'].'.txt';
+		if (file_exists("forms/".$filename)) {
+		//echo "The file $filename exists<br>";
+
+		$current = file_get_contents("forms/".$filename);
+		//$current = json_encode($current);
+		echo "var formData=".$current.";";
+		echo "var formName='".$_GET['formName']."';";
+	} else {
+		//$file = 'people.txt';
+		// Open the file to get existing content
+		//$current = file_get_contents($file);
+		// Append a new person to the file
+		//$current .= "John Smith\n";
+		// Write the contents back to the file
+		//file_put_contents($filename, $data);
+		echo "var formData=[];";
+		echo "var formName=''";
+	}
+	?>
+    console.log(formData);
+    </script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
@@ -14,7 +38,7 @@
     <script type="text/javascript" src="js/angular-validator.min.js"></script>
     <script type="text/javascript" src="js/angular-validator-rules.min.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
-    <script>var formData=[];var formName='';</script>
+    
 </head>
 <body class="container" ng-controller="DemoController">
     <div class="row">
@@ -45,7 +69,7 @@
     </div>
 	<div class="row">
     	<div class="col-md-10">
-        <input type="text" name="formName" placeholder="Form Name" class="form-control" style="width:20%;display:inline;margin-right:5px;" ng-model="formName"/><button class="btn btn-primary" ng-click="saveForm()">Save &amp; Preview</button>
+        <input type="text" name="formName" class="form-control" style="width:20%;display:inline;margin-right:5px;" disabled="disabled" ng-model="formName"/><button class="btn btn-primary" ng-click="saveForm()">Save &amp; Preview</button>
         </div>
     </div>
     

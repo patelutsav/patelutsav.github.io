@@ -81,6 +81,7 @@
 	  //$builder.forms['default'] = [{"component":"textInput","editable":true,"index":0,"label":"Text Input","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"},{"component":"textArea","editable":true,"index":1,"label":"Text Area","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"}];
       $scope.input = [];
       $scope.defaultValue = {};
+	  $scope.formName = formName;
 	  $scope.saveForm = function () {
 		  var formData = { 'formName': $scope.formName, 'formData': angular.toJson($scope.form)};
 		  //alert(formData);
@@ -93,16 +94,28 @@
                );
 		  
 		};
+		
       return $scope.submit = function() {
         return $validator.validate($scope, 'default').success(function() {
+			$('#myModal').modal('show');
 			return console.log('success');
         }).error(function() {
           return console.log('error');
         });
+		
       };
     }
-  ]);
+  ]).controller('printController',['$scope','$builder', function($scope,$builder) {
+	  	$scope.values=$scope.$parent.input;//[{"label":"Text Input","value":""},{"label":"Text Area","value":""}];
+		$scope.printDiv = function() {
+			debugger;
+		  var printContents = document.getElementById('printForm').innerHTML;
+		  var popupWin = window.open('', '_blank', 'width=300,height=300');
+		  popupWin.document.open();
+		  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/bootstrap.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+		  popupWin.document.close();
+		} 
+	}]);	
 
 }).call(this);
-
 
