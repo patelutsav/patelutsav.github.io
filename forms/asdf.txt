@@ -1,1 +1,0 @@
-[{"component":"textInput","editable":true,"index":0,"label":"Text Input","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"},{"component":"textArea","editable":true,"index":1,"label":"Text Area","description":"description","placeholder":"placeholder","options":[],"required":false,"validation":"/.*/"}]
